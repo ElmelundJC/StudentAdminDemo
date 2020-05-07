@@ -51,6 +51,9 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
 
     @Override
     public boolean delete(int id) {
-        return false;
+        inMemoryDatabase.remove(inMemoryDatabase.get(id));
+        return true;
+
+
     }
 }
