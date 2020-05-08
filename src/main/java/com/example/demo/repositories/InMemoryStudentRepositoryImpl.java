@@ -26,6 +26,7 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
 
     @Override
     public boolean create(Student student) {
+        inMemoryDatabase.add(student);
         return false;
     }
 
