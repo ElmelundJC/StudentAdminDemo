@@ -2,7 +2,9 @@ package com.example.demo.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
 import java.util.Date;
+@Entity
 
 public class Student{
     public int id;
