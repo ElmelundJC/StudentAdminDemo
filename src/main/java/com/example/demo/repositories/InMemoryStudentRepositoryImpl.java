@@ -30,6 +30,7 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
         System.out.println(student.toString());
         inMemoryDatabase.add(student);
         System.out.println(inMemoryDatabase.get(7));
+        System.out.println(inMemoryDatabase.toString());
 
         return false;
     }

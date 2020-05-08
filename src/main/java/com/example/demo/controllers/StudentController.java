@@ -75,9 +75,8 @@ public class StudentController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("student") Student student) {
-        InMemoryStudentRepositoryImpl inMemStud = new InMemoryStudentRepositoryImpl();
         System.out.println(student.toString());
-        inMemStud.create(student);
+        studentRepository.create(student);
 
         return "redirect:/";
     }
