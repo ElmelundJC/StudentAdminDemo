@@ -13,18 +13,19 @@
         <h1>Student administration</h1>
 
         <table>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Enrollment</th>
-                <th>Edit</th>
-            </tr>
+            <a href="/create"><button class="btn-create"> Create</button></a><br><br>
+
+
             <tr th:each="student : ${students}">
                 <td th:text="${student.firstName}"></td>
                 <td th:text="${student.lastName}"></td>
                 <td th:text="${student.enrollmentDate}"></td>
-                <td><a th:href="@{/student(id=${student.id})}"><button>Details</button></a></td>
+                <td><a th:href="@{/student(id=${student.id})}"><button class="btn-create">Details</button></a>
+                    <a th:href="@{/edit(id=${student.id})}"><button class="btn-ed">Edit</button></a>
+                    <a th:href="@{/student(id=${student.id})}"><button class="btn-del">Delete</button></a></td>
             </tr>
+
+
 
             <!--
             <tr>

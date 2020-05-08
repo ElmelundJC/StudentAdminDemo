@@ -20,20 +20,6 @@ nav a {
     text-decoration: none;
 }
 
-#logo {
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-.footer {
-    padding-top: 20px;
-    padding-right: 5px;
-    text-align: right;
-    color: #666666;
-    font-style: italic;
-
-}
-
 /* table styles */
 /* https://www.w3schools.com/html/html_tables.asp */
 
@@ -86,21 +72,90 @@ input {
 
 .btn-create {
     background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
+}
+
+.btn-create-long {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
+    width: 60%;
+}
+
+.btn-create-form {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
 }
 
 /* Green */
 .btn-details {
     background-color: #555555;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
 }
 
 /* Black */
 .btn-ed {
     background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
 }
 
 /* red */
 .btn-del {
     background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
 }
 
 /* Red */
@@ -113,6 +168,17 @@ input {
     width: 20%;
 }
 
+.header {
+    padding: 10px;
+    text-align: left;
+    background: black;
+    color: white;
+    font-size: 13px;
+    padding-left: 100px;
+}
+
+.forms{
+    padding-left: 100px;
+}
+
 /* input fields */
-
-
