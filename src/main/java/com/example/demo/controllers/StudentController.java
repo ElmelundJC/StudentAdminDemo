@@ -27,8 +27,9 @@ public class StudentController {
 
     @GetMapping("/student")
     @ResponseBody
-    public String getStudentByParameter(@RequestParam int id) {
+    public String getStudentByParameter(@RequestParam int id, Model model) {
         Student stu = studentRepository.read(id);
-        return "The name is: " + stu.getFirstName() + " and the cpr is " + stu.getCpr();
+        model.addAttribute("student ", stu);
+        return "student";
     }
 }
