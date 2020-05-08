@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create Student</title>
@@ -10,7 +11,8 @@
 <div class="header">
     <h2><b>KEA</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses </h2>
 </div>
-<form action="/create" class="forms">
+<form action="#" th:action="@{/save}" th:object="${student}"
+      method="post">
     <h1>Create Student</h1>
     <label for="fname">First name:</label>
     <input type="text" id="fname" name="fname"><br><br>
@@ -19,7 +21,7 @@
     <label for="fname">Enrollment Date:</label>
     <input type="text" id="enroldate" name="enroldate" value="dd/mm/yyyy"><br><br>
     <label for="fname">CPR:</label>
-    <input type="text" id="cpr" name="enroldate"><br><br>
+    <input type="date" id="cpr" name="enroldate"><br><br>
     <input type="submit" class="btn-create-form" value="Create">
 </form>
 </body>

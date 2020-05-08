@@ -60,9 +60,26 @@ public class StudentController {
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_product");
         Student student = studentRepository.read(id);
-        mav.addObject("product", student);
+        mav.addObject("student", student);
 
         return mav;
+    }
+
+    @RequestMapping("/new")
+    public String showNewProductPage(Model model) {
+        Student student = new Student();
+        model.addAttribute("student", student);
+
+        return "new_student";
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveProduct(@ModelAttribute("student") Student student) {
+        InMemoryStudentRepositoryImpl inMemStud = new InMemoryStudentRepositoryImpl();
+        System.out.println(student.toString());
+        inMemStud.create(student);
+
+        return "redirect:/";
     }
 
 }

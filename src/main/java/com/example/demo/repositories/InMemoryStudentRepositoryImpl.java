@@ -1,12 +1,13 @@
 package com.example.demo.repositories;
 
 import com.example.demo.models.Student;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class InMemoryStudentRepositoryImpl implements IStudentRepository{
     private List<Student> inMemoryDatabase;
 
@@ -16,17 +17,20 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
                         new Student(1, "Nicklas","Frederiksen", new Date(12312), "31134115-1231"),
                         new Student(2, "Bent","Karlsen", new Date(2141241), "31134115-4112"),
                         new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551")
+                        new Student(4, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
+                        new Student(5, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
+                        new Student(6, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
+                        new Student(7, "Bob","Alicesen",new Date(12424141), "233124f14-5551")
                 )
         );
     }
 
     @Override
     public boolean create(Student student) {
+        System.out.println(student.toString());
         inMemoryDatabase.add(student);
+        System.out.println(inMemoryDatabase.get(7));
+
         return false;
     }
 
