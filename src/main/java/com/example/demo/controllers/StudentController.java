@@ -31,8 +31,12 @@ public class StudentController {
         return "The name is: " + stu.getFirstName() + " and the cpr is " + stu.getCpr();
     }
     @GetMapping("/create")
-    public String create(){
-        return "create";
+    public ModelAndView create(){
+            ModelAndView mav = new ModelAndView("create");
+            Student student = new Student();
+            mav.addObject("student",student);
+
+        return mav;
     }
 
     @GetMapping("/edit")
@@ -41,21 +45,6 @@ public class StudentController {
         return "edit";
     }
 
-
-
-    @GetMapping("/test")
-    public String test(){
-        return "test";
-    }
-/*
-    @GetMapping("/edit")
-    @ResponseBody
-    public Student getStudentByParameter123(@RequestParam int id) {
-        Student stu = studentRepository.read(id);
-        return stu;
-    }
-*/
-
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_product");
@@ -63,14 +52,6 @@ public class StudentController {
         mav.addObject("student", student);
 
         return mav;
-    }
-
-    @RequestMapping("/new")
-    public String showNewProductPage(Model model) {
-        Student student = new Student();
-        model.addAttribute("student", student);
-
-        return "new_student";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
