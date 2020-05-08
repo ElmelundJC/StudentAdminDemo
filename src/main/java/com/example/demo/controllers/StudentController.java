@@ -32,30 +32,4 @@ public class StudentController {
         model.addAttribute("student ", stu);
         return "student";
     }
-    @GetMapping("/create")
-    public String create(){
-        return "create";
-    }
-/*
-    @GetMapping("/edit")
-    public String edit(Model model){
-        model.addAttribute("students" , studentRepository.readAll());
-        return "edit";
-    }
-    */
-
-
-    @GetMapping("/test")
-    public String test(){
-        return "test";
-    }
-
-    @GetMapping("/edit")
-    @ResponseBody
-    public Student getStudentByParameter123(@RequestParam int id) {
-        Student stu = studentRepository.read(id);
-        return stu;
-    }
-
-
 }

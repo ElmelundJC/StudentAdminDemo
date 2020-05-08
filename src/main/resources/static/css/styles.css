@@ -8,16 +8,12 @@ body {
     width: 1024px;
     margin: 0 auto;
 }
-
-
 /*https://www.w3schools.com/TAgs/tag_nav.asp*/
-
 nav {
     background-color: #222;
     padding-bottom: 15px;
     padding-top: 15px;
 }
-
 nav a {
     color: white;
     padding: 10px 15px;
@@ -29,44 +25,33 @@ nav a {
     font-size: 1.2em;
 }
 
-.header {
-    padding-top: 15px;
-    text-align: center;
-    color: #222222;
-    font-style: italic;
-}
-
 .footer {
     padding-top: 20px;
     padding-right: 5px;
     text-align: right;
     color: #666666;
     font-style: italic;
+
 }
 
-
 /* table styles */
-
-
 /* https://www.w3schools.com/html/html_tables.asp */
 
 table {
-    border-collapse: collapse;
-    /*https://www.w3schools.com/CSSref/tryit.asp?filename=trycss_border-collapse3*/
+    border-collapse: collapse; /*https://www.w3schools.com/CSSref/tryit.asp?filename=trycss_border-collapse3*/
     width: 100%;
 }
 
-td,
-th {
+td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 5px 8px 5px 8px;
-    /*https://www.w3schools.com/csS/css_padding.asp*/
+    padding: 5px 8px 5px 8px; /*https://www.w3schools.com/csS/css_padding.asp*/
 }
 
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
 
 input {
     display: block;
@@ -82,10 +67,7 @@ input {
     border-radius: .25rem;
 }
 
-
 /* Buttons */
-
-
 /* https://www.w3schools.com/css/css3_buttons.asp */
 
 .btn {
@@ -97,14 +79,14 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
     box-shadow: 1px 1px 1px #888888;
     transition-duration: 0.1s;
 }
 
 .btn-create {
-    background-color: #4CAF50;
+    background-color:  #4CAF50;
+
     border: none;
     color: white;
     padding: 7px 10px;
@@ -112,48 +94,15 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
     box-shadow: 1px 1px 1px #888888;
     transition-duration: 0.1s;
 }
-
-.btn-create-long {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 7px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
-    box-shadow: 1px 1px 1px #888888;
-    transition-duration: 0.1s;
-    width: 60%;
-}
-
-.btn-create-form {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 7px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
-    box-shadow: 1px 1px 1px #888888;
-    transition-duration: 0.1s;
-}
-
 
 /* Green */
-
 .btn-details {
-    background-color: #555555;
+    background-color:  #4CAF50;
+
     border: none;
     color: white;
     padding: 7px 10px;
@@ -161,17 +110,16 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
     box-shadow: 1px 1px 1px #888888;
     transition-duration: 0.1s;
-}
 
+}
 
 /* Black */
-
 .btn-ed {
-    background-color: #008CBA;
+    background-color: dodgerblue;
+
     border: none;
     color: white;
     padding: 7px 10px;
@@ -179,17 +127,15 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
     box-shadow: 1px 1px 1px #888888;
     transition-duration: 0.1s;
 }
-
 
 /* red */
-
 .btn-del {
-    background-color: #f44336;
+    background-color: darkred;
+
     border: none;
     color: white;
     padding: 7px 10px;
@@ -197,12 +143,11 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    border-radius: 5px;
-    /* https://www.w3schools.com/css/css3_borders.asp */
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
     box-shadow: 1px 1px 1px #888888;
     transition-duration: 0.1s;
-}
 
+}
 
 /* Red */
 
@@ -214,18 +159,6 @@ input {
     width: 20%;
 }
 
-.header {
-    padding: 10px;
-    text-align: left;
-    background: black;
-    color: white;
-    font-size: 13px;
-    padding-left: 100px;
-}
-
-.forms {
-    padding-left: 100px;
-}
-
-
 /* input fields */
+
+
