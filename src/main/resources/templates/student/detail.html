@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <meta charset="UTF-8">
     <title>Student details</title>
 </head>
 <body>
+<div class="header">
+    <h2><b>KEA</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses </h2>
+</div>
+<h1 class="headline">Student Details</h1>
 
+    <table>
+        <a href="/create"><button class="btn-create"> Create</button></a><br><br>
+
+
+        <tr th:each="student : ${students}">
+            <td th:text="${student.firstName}"></td>
+            <br>
+            <td th:text="${student.lastName}"></td>
+            <br>
+            <td th:text="${student.enrollmentDate}"></td>
+            <br>
+            <td th:text="${student.id}"></td>
+            <br>
+            <td th:text="${student.cpr}"></td>
+
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

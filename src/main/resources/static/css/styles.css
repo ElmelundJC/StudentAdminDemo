@@ -70,6 +70,10 @@ input {
     transition-duration: 0.1s;
 }
 
+.headline{
+    margin-left: 100px;
+}
+
 .btn-create {
     background-color: #4CAF50;
     border: none;

@@ -23,6 +23,18 @@ public class StudentController {
         model.addAttribute("students" , studentRepository.readAll());
         return "index";
     }
+    @RequestMapping("/student/detail")
+    public String getStudentByParameterDetai(@RequestParam int id,Model model) {
+        model.addAttribute("students",studentRepository.read(id));
+        return "student/detail";
+    }
+
+    @GetMapping("/delete")
+    public String deleteStudentByParam(@RequestParam int id,Model model) {
+        model.addAttribute("students",studentRepository.read(id));
+        return "delete";
+    }
+
 
     @GetMapping("/student")
     @ResponseBody
@@ -39,15 +51,9 @@ public class StudentController {
         return mav;
     }
 
-    @GetMapping("/edit")
-    public String edit(Model model){
-        model.addAttribute("students" , studentRepository.readAll());
-        return "edit";
-    }
-
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_product");
+        ModelAndView mav = new ModelAndView("edit");
         Student student = studentRepository.read(id);
         mav.addObject("student", student);
 
@@ -56,7 +62,6 @@ public class StudentController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("student") Student student) {
-        System.out.println(student.toString());
         studentRepository.create(student);
 
         return "redirect:/";

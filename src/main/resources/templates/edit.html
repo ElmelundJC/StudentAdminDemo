@@ -11,19 +11,18 @@
 <div class="header">
     <h2><b>KEA</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses </h2>
 </div>
-
-<form action="/create" class="forms">
-
+<form class="forms" action="#" th:action="@{/save}" th:object="${student}"
+      method="post">
     <h1>Update</h1>
     <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
+    <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
     <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <label for="fname">Enrollment Date:</label>
-    <input type="text" id="enroldate" name="enroldate" value="dd/mm/yyyy"><br><br>
+    <input type="text" th:field="*{lastName}" name="lname" id="lname" /><br><br>
+    <label for="enroll">Enrollment Date:</label>
+    <input type="date" th:field="*{enrollmentDate}" name="enroll" id="enroll" /><br><br>
     <label for="fname">CPR:</label>
-    <input type="text" id="cpr" name="enroldate"><br><br>
-    <input type="submit" class="btn-create-form" value="Edit">
+    <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
+    <input type="submit" class="btn-create-form" value="Create">
 </form>
 </body>
 </html>
