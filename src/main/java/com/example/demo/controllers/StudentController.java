@@ -29,10 +29,13 @@ public class StudentController {
         return "student/detail";
     }
 
-    @GetMapping("/delete")
-    public String deleteStudentByParam(@RequestParam int id,Model model) {
-        model.addAttribute("students",studentRepository.read(id));
-        return "delete";
+    @RequestMapping("/delete/{id}")
+    public ModelAndView deleteStudent(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("delete");
+        Student student = studentRepository.read(id);
+        mav.addObject("student", student);
+
+        return mav;
     }
 
 
@@ -41,6 +44,7 @@ public class StudentController {
     public String getStudentByParameter(@RequestParam int id) {
         Student stu = studentRepository.read(id);
         return "The name is: " + stu.getFirstName() + " and the cpr is " + stu.getCpr();
+
     }
     @GetMapping("/create")
     public ModelAndView create(){
@@ -61,8 +65,15 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("student") Student student) {
+    public String saveStudent(@ModelAttribute("student") Student student) {
         studentRepository.create(student);
+        return "redirect:/";
+    }
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteStudent(@ModelAttribute("student") Student student) {
+        int id = student.id;
+        System.out.println(id);
+        studentRepository.delete(id);
 
         return "redirect:/";
     }
