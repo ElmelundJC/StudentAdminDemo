@@ -162,6 +162,34 @@ input {
     transition-duration: 0.1s;
 }
 
+.btn-yes {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
+}
+
+.btn-no {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 7px 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px; /* https://www.w3schools.com/css/css3_borders.asp */
+    box-shadow: 1px 1px 1px #888888;
+    transition-duration: 0.1s;
+}
+
 /* Red */
 
 .btn:hover {
