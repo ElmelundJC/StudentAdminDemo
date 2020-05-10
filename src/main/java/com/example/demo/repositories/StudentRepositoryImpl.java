@@ -26,10 +26,9 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public Student read(int id) {
         Student studentToReturn = new Student();
         try {
-            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM students WHERE students_id=?");
+            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM student WHERE id=?");
             ResultSet rs = getSingleStudent.executeQuery();
             while(rs.next()){
-                studentToReturn = new Student();
                 studentToReturn.setId(rs.getInt(1));
                 studentToReturn.setFirstName(rs.getString(2));
                 studentToReturn.setLastName(rs.getString(3));
@@ -47,7 +46,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public List<Student> readAll() {
         List<Student> allStudents = new ArrayList<Student>();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM students");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM student");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Student tempStudent = new Student();

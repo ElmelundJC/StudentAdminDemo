@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
     <meta charset="UTF-8">
     <title>Student details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<div class="header">
-    <h2><b>KEA</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses </h2>
+<div class="container">
+
+    <div th:insert="fragments/top_menu">
+
+    </div>
+
+    <h1>Student Details</h1>
+
+
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <br>
+        <td th:text="${student.firstName}"></td>
+        <br>
+        <td th:text="${student.lastName}"></td>
+        <br>
+        <td th:text="${student.enrollmentDate}"></td>
+        <br>
+
+        <td th:text="${student.cpr}"></td>
+
+
+    </tr>
+
 </div>
-<h1 class="headline">Student Details</h1>
-
-    <table>
 
 
-        <tr th:each="student : ${students}">
-            <td th:text="${student.firstName}"></td>
-            <br>
-            <td th:text="${student.lastName}"></td>
-            <br>
-            <td th:text="${student.enrollmentDate}"></td>
-            <br>
-            <td th:text="${student.id}"></td>
-            <br>
-            <td th:text="${student.cpr}"></td>
-
-            </td>
-        </tr>
-    </table>
 </body>
 </html>
