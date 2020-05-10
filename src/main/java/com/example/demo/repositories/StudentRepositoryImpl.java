@@ -34,6 +34,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 studentToReturn.setLastName(rs.getString(3));
                 studentToReturn.setEnrollmentDate(rs.getDate(4));
                 studentToReturn.setCpr(rs.getString(5));
+
             }
         }
         catch(SQLException s){

@@ -24,8 +24,8 @@ public class StudentController {
         return "index";
     }
     @RequestMapping("/student/detail")
-    public String getStudentByParameterDetai(@RequestParam int id,Model model) {
-        model.addAttribute("students",studentRepository.read(id));
+    public String getStudentByParameterDetail(@RequestParam int id,Model model) {
+        model.addAttribute("students", studentRepository.read(id));
         return "student/detail";
     }
 
