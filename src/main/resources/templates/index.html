@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Student Administration</title>
     <!-- stylesheet -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
+
 <body>
     <!-- TODO: MENU -->
     <!-- TODO: Table of students -->
@@ -13,22 +15,21 @@
         <h1>Student administration</h1>
 
         <table>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Enrollment</th>
-                <th>Edit</th>
-            </tr>
+            <a href="/create"><button class="btn-create"> Create</button></a><br><br>
+
+
             <tr th:each="student : ${students}">
                 <td th:text="${student.firstName}"></td>
                 <td th:text="${student.lastName}"></td>
                 <td th:text="${student.enrollmentDate}"></td>
-                <td>
-                    <a th:href="@{/student(id=${student.id})}"><button class="btn-details">Details</button></a>
-                    <a th:href="@{/student(id=${student.id})}"><button class="btn-ed">Edit</button></a>
-                    <a th:href="@{/student(id=${student.id})}"><button class="btn-del">Delete</button></a>
+                <td><a th:href="@{/student/detail(id=${student.id})}"><button class="btn-create">Details</button></a>
+                    <a th:href="@{'/edit/' + ${student.id}}"><button class="btn-ed">Edit</button></a>
+                    <a th:href="@{'/delete/' + ${student.id}}"><button class="btn-del">Delete</button></a>
+
                 </td>
             </tr>
+
+
 
             <!--
             <tr>
@@ -54,4 +55,5 @@
         </table>
     </div>
 </body>
+
 </html>

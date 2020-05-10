@@ -6,9 +6,8 @@ import com.example.demo.repositories.InMemoryStudentRepositoryImpl;
 import com.example.demo.repositories.StudentRepositoryImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class StudentController {
@@ -24,12 +23,59 @@ public class StudentController {
         model.addAttribute("students" , studentRepository.readAll());
         return "index";
     }
+    @RequestMapping("/student/detail")
+    public String getStudentByParameterDetai(@RequestParam int id,Model model) {
+        model.addAttribute("students",studentRepository.read(id));
+        return "student/detail";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public ModelAndView deleteStudent(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("delete");
+        Student student = studentRepository.read(id);
+        mav.addObject("student", student);
+
+        return mav;
+    }
+
 
     @GetMapping("/student")
     @ResponseBody
     public String getStudentByParameter(@RequestParam int id, Model model) {
         Student stu = studentRepository.read(id);
-        model.addAttribute("student ", stu);
-        return "student";
+        return "The name is: " + stu.getFirstName() + " and the cpr is " + stu.getCpr();
+
     }
+    @GetMapping("/create")
+    public ModelAndView create(){
+            ModelAndView mav = new ModelAndView("create");
+            Student student = new Student();
+            mav.addObject("student",student);
+
+        return mav;
+    }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("edit");
+        Student student = studentRepository.read(id);
+        mav.addObject("student", student);
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveStudent(@ModelAttribute("student") Student student) {
+        studentRepository.create(student);
+        return "redirect:/";
+    }
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteStudent(@ModelAttribute("student") Student student) {
+        int id = student.id;
+        System.out.println(id);
+        studentRepository.delete(id);
+
+        return "redirect:/";
+    }
+
 }
