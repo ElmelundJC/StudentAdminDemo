@@ -1,12 +1,13 @@
 package com.example.demo.repositories;
 
 import com.example.demo.models.Student;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class InMemoryStudentRepositoryImpl implements IStudentRepository{
     private List<Student> inMemoryDatabase;
 
@@ -15,17 +16,22 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
                 Arrays.asList(
                         new Student(1, "Nicklas","Frederiksen", new Date(12312), "31134115-1231"),
                         new Student(2, "Bent","Karlsen", new Date(2141241), "31134115-4112"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551"),
-                        new Student(3, "Bob","Alicesen",new Date(12424141), "233124f14-5551")
+                        new Student(3, "Bob","Bobber",new Date(12424141), "233124f14-5551"),
+                        new Student(4, "Bob","Bobbistan",new Date(12424141), "233124f14-5551"),
+                        new Student(5, "Bob","Bob",new Date(12424141), "233124f14-5551"),
+                        new Student(6, "Bob","Bobbington",new Date(12424141), "233124f14-5551"),
+                        new Student(7, "Bob","Bobsem",new Date(12424141), "233124f14-5551")
                 )
         );
     }
 
     @Override
     public boolean create(Student student) {
+        System.out.println(student.toString());
+        inMemoryDatabase.add(student);
+        System.out.println(inMemoryDatabase.get(7));
+        System.out.println(inMemoryDatabase.toString());
+
         return false;
     }
 
@@ -51,9 +57,16 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
 
     @Override
     public boolean delete(int id) {
-        inMemoryDatabase.remove(inMemoryDatabase.get(id));
-        return true;
+        System.out.println(id);
+        for (Student student : inMemoryDatabase){
+            if(student.id == id){
+                System.out.println(id);
+                inMemoryDatabase.remove(student);
+                return true;
+            }
 
 
+        }
+        return false;
     }
 }
