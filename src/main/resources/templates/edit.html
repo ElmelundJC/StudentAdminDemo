@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Student</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
 <br>
-<div class="header">
-    <h2><b>KEA</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses </h2>
-</div>
+<div class="container">
+
+    <div th:insert="fragments/top_menu">
+    </div>
+
+    <h1>Update</h1>
+
 <form class="forms" action="#" th:action="@{/save}" th:object="${student}"
       method="post">
-    <h1>Update</h1>
+
     <label for="fname">First name:</label>
     <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
     <label for="lname">Last name:</label>
@@ -24,5 +31,6 @@
     <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
     <input type="submit" class="btn-create-form" value="Create">
 </form>
+</div>
 </body>
 </html>

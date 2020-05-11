@@ -3,28 +3,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Student</title>
+    <title>Delete Student</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
 <br>
-<div class="header">
-    <h2><b>KEA</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses </h2>
-</div>
+<div class="container">
+    <div th:insert="fragments/top_menu">
+    </div>
+    <h1>Delete</h1>
+    <p style="font-size: 160%"><b>Are you sure you want to delete</b></p>
+
 <form class="forms" action="#" th:action="@{/delete}" th:object="${student}"
       method="post">
-    <h1>Update</h1>
-    <label for="id">First name:</label>
-    <input type="text" th:field="*{id}" name="fname" id="id" /><br><br>
+
+
+
+    <label for="lname">First name:</label>
+    <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br>
     <label for="lname">Last name:</label>
-    <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" th:field="*{lastName}" name="lname" id="lname" /><br><br>
-    <label for="enroll">Enrollment Date:</label>
-    <input type="date" th:field="*{enrollmentDate}" name="enroll" id="enroll" /><br><br>
-    <label for="fname">CPR:</label>
-    <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
-    <input type="submit" class="btn-create-form" value="Create">
+    <input type="text" th:field="*{lastName}" name="lname" id="lname" /><br>
+
+
+    <input type="submit" class="btn-create-form" value="YES"> <br>
+
+    <br>
+    <input type="submit" class="btn-no" value="NO">
+
 </form>
+</div>
 </body>
 </html>
