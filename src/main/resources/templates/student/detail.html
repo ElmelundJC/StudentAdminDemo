@@ -10,31 +10,31 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<div class="container">
+    <div class="container">
 
-    <div th:insert="fragments/top_menu">
+        <div th:insert="fragments/top_menu">
+
+         </div>
+
+         <h1>Student Details</h1>
+
+
+        <tr th:each="student : ${students}">
+           <td th:text="${student.id}"></td>
+             <br>
+             <td th:text="${student.firstName}"></td>
+            <br>
+            <td th:text="${student.lastName}"></td>
+            <br>
+             <td th:text="${student.enrollmentDate}"></td>
+             <br>
+
+            <td th:text="${student.cpr}"></td>
+
+
+          </tr>
 
     </div>
-
-    <h1>Student Details</h1>
-
-
-    <tr th:each="student : ${students}">
-        <td th:text="${student.id}"></td>
-        <br>
-        <td th:text="${student.firstName}"></td>
-        <br>
-        <td th:text="${student.lastName}"></td>
-        <br>
-        <td th:text="${student.enrollmentDate}"></td>
-        <br>
-
-        <td th:text="${student.cpr}"></td>
-
-
-    </tr>
-
-</div>
 
 
 </body>
