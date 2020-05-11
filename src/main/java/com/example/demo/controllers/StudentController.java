@@ -28,7 +28,7 @@ public class StudentController {
         ModelAndView mav = new ModelAndView("student/detail");
         Student student = studentRepository.read(id);
         mav.addObject("student", student);
-        //model.addAttribute("students", studentRepository.read(id));
+
         return mav;
     }
 
@@ -59,10 +59,12 @@ public class StudentController {
     }
 
     @RequestMapping("/edit/{id}")
+
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit");
         Student student = studentRepository.read(id);
         mav.addObject("student", student);
+        System.out.println(student.getId());
 
         return mav;
     }
@@ -72,6 +74,15 @@ public class StudentController {
         studentRepository.create(student);
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateStudent(@ModelAttribute("student") Student student) {
+        System.out.println(student.getId());
+        studentRepository.update(student);
+        System.out.println("updated student");
+        return "redirect:/";
+    }
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String deleteStudent(@ModelAttribute("student") Student student) {
         int id = student.id;

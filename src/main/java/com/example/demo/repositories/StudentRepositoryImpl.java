@@ -80,6 +80,24 @@ public class StudentRepositoryImpl implements IStudentRepository {
     @Override
     public boolean update(Student student) {
 
+        try {
+
+            System.out.println("trying to update statement");
+        PreparedStatement myStmt = conn.prepareStatement("UPDATE STUDENT SET firstName = ?, lastName = ?, cpr = ? WHERE id ="+student.getId());
+
+        myStmt.setString(1, student.getFirstName());
+        myStmt.setString(2, student.getLastName());
+        //myStmt.setDate(3, student.getEnrollmentDate());
+        myStmt.setString(3, student.getCpr());
+
+        System.out.println(myStmt);
+        myStmt.executeUpdate();
+
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
         return false;
     }
 

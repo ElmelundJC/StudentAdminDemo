@@ -22,15 +22,18 @@
 <form class="forms" action="#" th:action="@{/save}" th:object="${student}"
       method="post">
 
+    <label for="id"><input th:field="*{id}" id="id" /></label>
+
     <label for="fname">First name:</label>
     <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
     <label for="lname">Last name:</label>
     <input type="text" th:field="*{lastName}" name="lname" id="lname" /><br><br>
-    <label for="enroll">Enrollment Date:</label>
+    <<label for="enroll">Enrollment Date:</label>
     <input type="date" th:field="*{enrollmentDate}" name="enroll" id="enroll" placeholder='yyyy-mm-dd'/><br><br>
     <label for="fname">CPR:</label>
     <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
-    <input type="submit" class="btn-create-form" value="Create">
+
+    <input type="submit" class="btn-create-form" value="Update">
 </form>
 </div>
 </body>
