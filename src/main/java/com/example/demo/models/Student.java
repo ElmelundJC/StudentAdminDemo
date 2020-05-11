@@ -5,14 +5,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.sql.Date;
 
 public class Student{
-    public int id;
+    public static int id;
     public String firstName;
     public String lastName;
-    @DateTimeFormat(pattern = "yyyy-mm-dd") // needed for input field on html pages (in order to serve the right format)
-    public Date enrollmentDate;
+    //@DateTimeFormat(pattern = "yyyy-mm-dd") // needed for input field on html pages (in order to serve the right format)
+    public String enrollmentDate;
     public String cpr;
 
-    public Student(int id, String firstName, String lastName, Date enrollmentDate, String cpr) {
+    public Student(int id, String firstName, String lastName, String enrollmentDate, String cpr) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -22,7 +22,7 @@ public class Student{
 
     public Student() {}
 
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
@@ -46,11 +46,11 @@ public class Student{
         this.lastName = lastName;
     }
 
-    public Date getEnrollmentDate() {
+    public String getEnrollmentDate() {
         return enrollmentDate;
     }
 
-    public void setEnrollmentDate(Date enrollmentDate) {
+    public void setEnrollmentDate(String enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
     }
 
