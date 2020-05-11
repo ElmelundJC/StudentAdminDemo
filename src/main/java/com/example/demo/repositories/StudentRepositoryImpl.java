@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class StudentRepositoryImpl implements IStudentRepository {
     private Connection conn;
 
@@ -17,18 +19,14 @@ public class StudentRepositoryImpl implements IStudentRepository {
     @Override
     public boolean create(Student student) {
         String sql = "INSERT INTO students (id, fname, lname, startdate, cpr) VALUES (default,?,?,?,?)";
-
         try {
             PreparedStatement preparedStatement = this.conn.prepareStatement(sql);
-
             //preparedStatement.setInt(1 , student.getId());
             preparedStatement.setString(1, student.getFirstName());
             preparedStatement.setString(2, student.getLastName());
-            preparedStatement.setDate(3, (Date) student.getEnrollmentDate());
+            preparedStatement.setDate(3, student.getEnrollmentDate());
             preparedStatement.setString(4,student.getCpr());
-
             preparedStatement.executeUpdate();
-
             System.out.println("Succesfully added Student");
         }
         catch (SQLException e){
@@ -41,7 +39,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public Student read(int id) {
         Student studentToReturn = new Student();
         try {
-            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM student WHERE id=?");
+            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM student WHERE id=" + id);
             ResultSet rs = getSingleStudent.executeQuery();
             while(rs.next()){
                 studentToReturn.setId(rs.getInt(1));

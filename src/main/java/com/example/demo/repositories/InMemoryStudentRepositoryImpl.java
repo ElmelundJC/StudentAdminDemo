@@ -14,14 +14,8 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
     public InMemoryStudentRepositoryImpl(){
         this.inMemoryDatabase = new ArrayList<Student>(
                 Arrays.asList(
-                        /*new Student(1, "Nicklas","Frederiksen", new Date(12312), "31134115-1231"),
-                        new Student(2, "Bent","Karlsen", new Date(2141241), "31134115-4112"),
-                        new Student(3, "Bob","Bobber",new Date(12424141), "233124f14-5551"),
-                        new Student(4, "Bob","Bobbistan",new Date(12424141), "233124f14-5551"),
-                        new Student(5, "Bob","Bob",new Date(12424141), "233124f14-5551"),
-                        new Student(6, "Bob","Bobbington",new Date(12424141), "233124f14-5551"),
-                        new Student(7, "Bob","Bobsem",new Date(12424141), "233124f14-5551")
-                */)
+
+                )
         );
     }
 

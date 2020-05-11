@@ -19,20 +19,19 @@
          <h1>Student Details</h1>
 
 
-        <tr th:each="student : ${students}">
-           <td th:text="${student.id}"></td>
-             <br>
-             <td th:text="${student.firstName}"></td>
-            <br>
-            <td th:text="${student.lastName}"></td>
-            <br>
-             <td th:text="${student.enrollmentDate}"></td>
-             <br>
+        <form class="forms" action="#" th:action="@{/student/detail}" th:object="${student}"
+              method="post">
 
-            <td th:text="${student.cpr}"></td>
-
-
-          </tr>
+            <label for="fname">First name:</label>
+            <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
+            <label for="lname">Last name:</label>
+            <input type="text" th:field="*{lastName}" name="lname" id="lname" /><br><br>
+            <label for="enroll">Enrollment Date:</label>
+            <input type="date" th:field="*{enrollmentDate}" name="enroll" id="enroll" /><br><br>
+            <label for="fname">CPR:</label>
+            <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
+            <input type="submit" class="btn-create-form" value="Create">
+        </form>
 
     </div>
 
