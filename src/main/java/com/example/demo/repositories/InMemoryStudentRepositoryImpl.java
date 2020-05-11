@@ -21,7 +21,7 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
                 )
         );
     }
-/*
+
     @Override
     public boolean create(Student student) {
         System.out.println(student.toString());
@@ -32,9 +32,11 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
         return false;
     }
 
- */
 
+
+    /*
     @Override
+
     public boolean create(Student student) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -42,7 +44,7 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
         DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
         try {
             Date startDate = formatter.parse(dateStr);
-            student.setEnrollmentDate(startDate);
+            student.setEnrollmentDate ((java.sql.Date) startDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -51,7 +53,7 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
         inMemoryDatabase.add(student);
         return false;
     }
-
+*/
     @Override
     public Student read(int id) {
         for(Student stu : inMemoryDatabase){

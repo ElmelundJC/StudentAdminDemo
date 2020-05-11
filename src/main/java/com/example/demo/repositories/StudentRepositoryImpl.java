@@ -4,8 +4,12 @@ import com.example.demo.models.Student;
 import com.example.demo.util.DatabaseConnectionManager;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 
 
@@ -18,7 +22,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
     @Override
     public boolean create(Student student) {
-        String sql = "INSERT INTO students (id, fname, lname, startdate, cpr) VALUES (default,?,?,?,?)";
+
         try {
             PreparedStatement preparedStatement = this.conn.prepareStatement(sql);
             //preparedStatement.setInt(1 , student.getId());
@@ -86,6 +90,18 @@ public class StudentRepositoryImpl implements IStudentRepository {
     @Override
     public boolean delete(int id) {
 
+        try {
+
+            PreparedStatement deleteSingleStudent = conn.prepareStatement("DELETE FROM student where id =?");
+            deleteSingleStudent.setInt(1,id);
+            deleteSingleStudent.executeUpdate();
+            return true;
+        }
+        catch(SQLException s){
+            s.printStackTrace();
+        }
         return false;
+
+
     }
 }
