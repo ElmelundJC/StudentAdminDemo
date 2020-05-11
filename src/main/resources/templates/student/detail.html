@@ -16,21 +16,35 @@
 
          </div>
 
-         <h1>Student Details</h1>
+
 
 
         <form class="forms" action="#" th:action="@{/student/detail}" th:object="${student}"
               method="post">
 
-            <label for="fname">First name:</label>
-            <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
-            <label for="lname">Last name:</label>
-            <input type="text" th:field="*{lastName}" name="lname" id="lname" /><br><br>
-            <label for="enroll">Enrollment Date:</label>
-            <input type="date" th:field="*{enrollmentDate}" name="enroll" id="enroll" /><br><br>
-            <label for="fname">CPR:</label>
-            <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
-            <input type="submit" class="btn-create-form" value="Create">
+            <tr>
+                <h1><b>Student Details</b></h1>
+                <br>
+                <td>ID: </td>
+                <td th:text="*{id}"></td>
+                <br>
+                <td>First Name: </td>
+                <td th:text="*{firstName}"></td>
+                <br>
+                <td>Last Name: </td>
+                <td th:text="*{lastName}"></td>
+                <br>
+                <td>Enrollment Date: </td>
+                <td th:text="*{enrollmentDate}"></td>
+                <br>
+                <td>CPR: </td>
+                <td th:text="*{cpr}"></td>
+            </tr>
+
+
+
+
+
         </form>
 
     </div>
