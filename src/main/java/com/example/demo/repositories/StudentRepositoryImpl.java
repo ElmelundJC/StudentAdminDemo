@@ -3,10 +3,7 @@ package com.example.demo.repositories;
 import com.example.demo.models.Student;
 import com.example.demo.util.DatabaseConnectionManager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +16,24 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
     @Override
     public boolean create(Student student) {
+        String sql = "INSERT INTO students (id, fname, lname, startdate, cpr) VALUES (default,?,?,?,?)";
+
+        try {
+            PreparedStatement preparedStatement = this.conn.prepareStatement(sql);
+
+            //preparedStatement.setInt(1 , student.getId());
+            preparedStatement.setString(1, student.getFirstName());
+            preparedStatement.setString(2, student.getLastName());
+            preparedStatement.setDate(3, (Date) student.getEnrollmentDate());
+            preparedStatement.setString(4,student.getCpr());
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("Succesfully added Student");
+        }
+        catch (SQLException e){
+            System.out.println("Failed to insert data " + e);
+        }
         return false;
     }
 
