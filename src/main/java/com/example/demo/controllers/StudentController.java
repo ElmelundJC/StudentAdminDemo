@@ -89,4 +89,9 @@ public class StudentController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/redirect", method = RequestMethod.POST)
+    public String redirect() {
+        return "redirect:/";
+    }
+
 }
