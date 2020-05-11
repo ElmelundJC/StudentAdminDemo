@@ -26,7 +26,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public Student read(int id) {
         Student studentToReturn = new Student();
         try {
-            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM students WHERE students_id=?");
+            PreparedStatement getSingleStudent = conn.prepareStatement("SELECT * FROM student WHERE students_id=?");
             ResultSet rs = getSingleStudent.executeQuery();
             while(rs.next()){
                 studentToReturn = new Student();
@@ -47,7 +47,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public List<Student> readAll() {
         List<Student> allStudents = new ArrayList<Student>();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM students");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM student");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 Student tempStudent = new Student();
@@ -71,6 +71,25 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
     @Override
     public boolean delete(int id) {
+
+        try {
+
+            PreparedStatement deleteSingleStudent = conn.prepareStatement("DELETE FROM student where id =?");
+            deleteSingleStudent.setInt(1,id);
+            deleteSingleStudent.executeUpdate();
+            return true;
+        }
+        catch(SQLException s){
+            s.printStackTrace();
+        }
         return false;
+
+        <td>
+    <a th:href="@{'/users/doDelete/' + ${student.id}}">
+        <span>Delete</span>
+    </a>
+</td>
     }
+
+
 }

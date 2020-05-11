@@ -15,7 +15,7 @@ public class StudentController {
     private IStudentRepository studentRepository;
 
     public StudentController() {
-        studentRepository = new InMemoryStudentRepositoryImpl();
+        studentRepository = new StudentRepositoryImpl();
     }
 
     @GetMapping("/")
@@ -46,6 +46,7 @@ public class StudentController {
         return "The name is: " + stu.getFirstName() + " and the cpr is " + stu.getCpr();
 
     }
+
     @GetMapping("/create")
     public ModelAndView create(){
             ModelAndView mav = new ModelAndView("create");
@@ -56,7 +57,7 @@ public class StudentController {
     }
 
     @RequestMapping("/edit/{id}")
-    public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+    public ModelAndView editStudent(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit");
         Student student = studentRepository.read(id);
         mav.addObject("student", student);
@@ -77,5 +78,7 @@ public class StudentController {
 
         return "redirect:/";
     }
+
+
 
 }

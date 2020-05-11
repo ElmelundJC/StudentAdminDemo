@@ -3,6 +3,9 @@ package com.example.demo.repositories;
 import com.example.demo.models.Student;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -24,14 +27,34 @@ public class InMemoryStudentRepositoryImpl implements IStudentRepository{
                 )
         );
     }
-
+/*
     @Override
     public boolean create(Student student) {
         System.out.println(student.toString());
         inMemoryDatabase.add(student);
-        System.out.println(inMemoryDatabase.get(7));
-        System.out.println(inMemoryDatabase.toString());
 
+
+
+        return false;
+    }
+
+ */
+
+    @Override
+    public boolean create(Student student) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        String dateStr = sdf.format(student.getEnrollmentDate());
+        DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+        try {
+            Date startDate = formatter.parse(dateStr);
+            student.setEnrollmentDate(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        inMemoryDatabase.add(student);
         return false;
     }
 

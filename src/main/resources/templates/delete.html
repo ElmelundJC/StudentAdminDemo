@@ -14,8 +14,8 @@
 <form class="forms" action="#" th:action="@{/delete}" th:object="${student}"
       method="post">
     <h1>Update</h1>
-    <label for="id">First name:</label>
-    <input type="text" th:field="*{id}" name="fname" id="id" /><br><br>
+    <label for="id">ID</label>
+    <input type="text" th:field="*{id}" name="fname" id="id" value="test" /><br><br>
     <label for="lname">Last name:</label>
     <input type="text" th:field="*{firstName}" name="fname" id="fname" /><br><br>
     <label for="lname">Last name:</label>
@@ -26,5 +26,10 @@
     <input type="text" th:field="*{cpr}" name="CPR" id="CPR" /><br><br>
     <input type="submit" class="btn-create-form" value="Create">
 </form>
+<td>
+    <a th:href="@{'/users/doDelete/' + ${student.id}}">
+        <span>Delete</span>
+    </a>
+</td>
 </body>
 </html>
