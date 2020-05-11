@@ -81,4 +81,12 @@ public class StudentController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateStudent(@ModelAttribute("student") Student student) {
+        System.out.println(student.getId());
+        studentRepository.update(student);
+        System.out.println("updated student");
+        return "redirect:/";
+    }
+
 }

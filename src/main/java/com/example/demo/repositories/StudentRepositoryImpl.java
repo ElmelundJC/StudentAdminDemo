@@ -79,6 +79,28 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
     @Override
     public boolean update(Student student) {
+
+        try {
+
+            System.out.println("trying to update statement");
+            PreparedStatement myStmt = conn.prepareStatement("UPDATE students SET fname = ?, lname = ?, enrollmentDate = ?, cpr = ? WHERE id ="+student.getId());
+
+            myStmt.setString(1, student.getFirstName());
+            myStmt.setString(2, student.getLastName());
+            myStmt.setDate(3, Date.valueOf(student.getEnrollmentDate()));
+            myStmt.setString(4, student.getCpr());
+
+            System.out.println(myStmt);
+            myStmt.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+            /*public boolean update(Student student) {
         try {
 
             PreparedStatement myStmt = conn.prepareStatement("UPDATE students SET fname = ?, lname = ?, enrollmentDate = ?, cpr = ? WHERE id =?;");
@@ -96,6 +118,8 @@ public class StudentRepositoryImpl implements IStudentRepository {
         }
         return false;
     }
+    */
+
 
     @Override
     public boolean delete(int id) {
