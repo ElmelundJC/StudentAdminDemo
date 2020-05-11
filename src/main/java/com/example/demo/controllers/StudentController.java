@@ -80,7 +80,7 @@ public class StudentController {
 
         return "redirect:/";
     }
-
+    
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateStudent(@ModelAttribute("student") Student student) {
         System.out.println(student.getId());
