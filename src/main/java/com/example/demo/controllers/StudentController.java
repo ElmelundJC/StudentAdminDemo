@@ -23,10 +23,13 @@ public class StudentController {
         model.addAttribute("students" , studentRepository.readAll());
         return "index";
     }
-    @RequestMapping("/student/detail")
-    public String getStudentByParameterDetail(@RequestParam int id,Model model) {
-        model.addAttribute("students", studentRepository.read(id));
-        return "student/detail";
+    @RequestMapping("/student/detail/{id}")
+    public ModelAndView getStudentByParameterDetail(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("student/detail");
+        Student student = studentRepository.read(id);
+        mav.addObject("student", student);
+        //model.addAttribute("students", studentRepository.read(id));
+        return mav;
     }
 
     @RequestMapping("/delete/{id}")
